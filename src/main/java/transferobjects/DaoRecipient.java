@@ -13,10 +13,8 @@ package transferobjects;
  * A generalization for transfer objects. 
  * Each instance of this class is a row in a database
  */
-public class TransferObject 
+public class DaoRecipient 
 {
- 
-    
     private int id;
     
     private String name;
@@ -39,7 +37,7 @@ public class TransferObject
     /*
     TODO: Should this maybe take a ResultSet instead? Probably not. The DAO should use this object in a fairly tightly coupled way
     */
-    public TransferObject(int id, String name, int year, String city, String category)
+    public DaoRecipient(int id, String name, int year, String city, String category)
     {
         this.id = id;
         this.name = name;
@@ -70,9 +68,6 @@ public class TransferObject
     {
         return "";
     }
-    
-    
-    
     
     
 }
