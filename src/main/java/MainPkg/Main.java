@@ -11,16 +11,7 @@ import transferobjects.RecipientTransferObject;
  * @date 6/10/2025
  */
 public class Main 
-{    
-    /*
-    public static void main(String[] args)
-    {
-        TableMetaDataTransferObject dto  = RecipientsBusinessLogic.getRecipientsMetaData();
-        System.out.println(dto);
-    }
-    */
-    
-    
+{       
     public static void main(String[] args) 
     {
         System.out.println("Returning all records");
@@ -32,22 +23,18 @@ public class Main
         System.out.println("Inserting one new recipient");
         System.out.println("ID    Name                       Year  City             Category        ");
         System.out.println("========================================================================");   
-        try {
-            String resultStr = RecipientsBusinessLogic.resultsToString(
-                    RecipientsBusinessLogic.insertNew(
-                            new RecipientTransferObject(
-                                "TestNameADD", 
-                                9999, 
-                                "Ottawa", 
-                                "Test Category"
-                            )
-                    )
-            );
-            System.out.println(resultStr);
-        } catch (ValidationException e)
-        {
-            e.printStackTrace();
-        }
+        String resultStr = RecipientsBusinessLogic.resultsToString(
+                RecipientsBusinessLogic.insertNew(
+                        new RecipientTransferObject(
+                            "TestNameADD", 
+                            9999, 
+                            "Ottawa", 
+                            "Test Category"
+                        )
+                )
+        );
+        System.out.println(resultStr);
+        
         
         System.out.println("Deleting last recipient");
         System.out.println("ID    Name                       Year  City             Category        ");

@@ -33,12 +33,18 @@ public class RecipientsBusinessLogic
     /**
      * @param obj Object to be inserted
      * @return All recipients, including the one that was just inserted
-     * @throws ValidationException 
      */
-    public static ArrayList<RecipientTransferObject> insertNew(RecipientTransferObject obj) throws ValidationException
+    public static ArrayList<RecipientTransferObject> insertNew(RecipientTransferObject obj)
     {
+        
         RecipientValidation.cleanRecipient(obj);
-        RecipientValidation.validateRecipient(obj);
+        
+        try {
+            RecipientValidation.validateRecipient(obj);
+        } catch (ValidationException e)
+        {
+            e.printStackTrace();
+        }
         try {
             return RecipientDataAccess.INSTANCE.insertNew(obj);
         } catch (SQLException e) {
