@@ -22,15 +22,15 @@ public class TableMetaDataTransferObject
     /**
      * @description Labels for each column in the table used to construct an instance
      */
-    private ArrayList<String> colLabels;
+    private final ArrayList<String> colLabels = new ArrayList<>();
     /**
-     * @description SQL datatypes for each column in the table used to construct an instance
+     * @description SQL data types for each column in the table used to construct an instance
      */
-    private ArrayList<String> colSQLTypes;
+    private final ArrayList<String> colSQLTypes = new ArrayList<>();
     /**
-     * @description Java datatypes for each column in the table used to construct an instance
+     * @description Java data types for each column in the table used to construct an instance
      */
-    private ArrayList<String> colJavaTypes;
+    private final ArrayList<String> colJavaTypes = new ArrayList<>();
     
 
     /**
@@ -39,9 +39,6 @@ public class TableMetaDataTransferObject
      */
     public TableMetaDataTransferObject(DatabaseMetaData metaData, String tableName) throws SQLException
     {
-        colLabels = new ArrayList<>();
-        colSQLTypes = new ArrayList<>();
-        colJavaTypes = new ArrayList<>();
         // A set of columns that belong to the table with name tableName
         ResultSet columns = metaData.getColumns(null, null, tableName, null);
         while (columns.next())
